@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour {
 
-	public static List<bool> turnManager = new List<bool> ();	//ターンプレイヤーの管理
-	public static List<string> playerlist = new List<string>(); //プレイヤー名のリスト
+	public List<bool> turnManager = new List<bool> ();	//ターンプレイヤーの管理
+	public List<string> playerlist = new List<string>(); //プレイヤー名のリスト
 
 	PhotonView view;
 
@@ -85,4 +85,18 @@ public class TurnManager : MonoBehaviour {
 		}
 	}
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting) {
+			//データの送信
+			stream.SendNext(turnManager);
+			stream.SendNext(playerlist);
+		} else {
+			//データの受信
+			this.turnManager = (List<bool>)stream.ReceiveNext();
+			this.playerlist = (List<string>)stream.ReceiveNext();
+		}
+	}
+
 }

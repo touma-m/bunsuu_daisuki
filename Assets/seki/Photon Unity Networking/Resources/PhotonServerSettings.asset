@@ -55,4 +55,5 @@ MonoBehaviour:
   - TCRequestListner
   - TurnChangeRequest
   - setMyturn
+  - getHandLength
   DisableAutoOpenWizard: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 
 public class PlayerInfoPref : Photon.MonoBehaviour {
@@ -16,11 +17,14 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 	Text joinedMembersText;
 	Text turnsatus;
 
-
+	//-----------------------------------------------------------------------------
 	Text handinfo;
-	public List<int> hand = new List<int> ();
+	public List<int> hand = new List<int> (); //自分の手札
 
 	Text enemyhandcount;
+	Dictionary<string,int> enemyhand = new Dictionary<string, int>(); //他プレイヤーの手札枚数
+	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 	bool[] testbool = { true, false, true };
 	string testss = "";
@@ -43,10 +47,10 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		} else {
 			startbutton.SetActive (false);
 		}
+			
 
+		//手札テスト-----------------------------------------------------------
 		handinfo.text = "";
-
-		//手札テスト
 		for (int i = 0; i < UnityEngine.Random.Range(1,10); i++) {
 			hand.Add (UnityEngine.Random.Range(0,76));
 		}
@@ -54,6 +58,14 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		foreach(int n in hand){
 			handinfo.text += n + ", ";
 		}
+
+		enemyhandcount.text = "";
+
+
+
+
+		//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 	}
 
 
@@ -70,12 +82,19 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		} else {
 			GameObject.Find ("TurnEndButton").GetComponent<Button> ().interactable = false;
 		}
+
+
+
 	}
+
+
 
 	//マスタークライアントのスタートボタン押下時
 	void ongamestart(){
 		turnmanager.GetComponent<TurnManager> ().gamestart ();
 		view.RPC ("getTurnInfoRequest",PhotonTargets.All);
+		view.RPC ("getHandLength", PhotonTargets.Others, PhotonNetwork.playerName, hand.Count);
+		dispHandLength(); //test
 	}
 
 
@@ -184,6 +203,28 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 	public void onGetMyturn(){
 		view.RPC ("getTurnInfo",PhotonTargets.MasterClient,PhotonNetwork.playerName);
 	}
+
+
+	//手札枚数取得用
+	[PunRPC]
+	public void getHandLength(string playername,int handlength){
+		enemyhand.Add (playername, handlength);
+	}
+
+
+	void dispHandLength(){
+		//相手の手札の枚数を取得
+//		foreach (Dictionary<string,int> eh in enemyhand) {
+//			enemyhandcount.text += eh.Keys + " : " + eh.Values + "\n";
+//		}
+	}
+
+
+
+
+
+
+
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
