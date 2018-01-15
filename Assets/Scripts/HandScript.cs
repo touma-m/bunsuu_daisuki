@@ -21,9 +21,11 @@ public class HandScript : MonoBehaviour {
 	void Update () {
 	    	
 	}
-    public void Draw(int[] DrawCard) {//ドローするやつ
+    public void Draw(List<int> DrawCard) {//ドローするやつ
 
-        foreach (int i in DrawCard) Hand.Add(i); 
+        foreach (int i in DrawCard) Hand.Add(i);
+
+        CardSet();
     }
     public void Sort() {//手札ソート　今使うとおかしなことに
         Hand.Sort();
@@ -98,21 +100,5 @@ public class HandScript : MonoBehaviour {
         SelectCard.RemoveAt(KillInt);
 
     }
-
-
-
-    public void test() {//  実装時は必ず消す
-        Debug.Log("にゃーん");
-        int[] testCards= { 4, 9, 23, 4, 7, 21, 30 };
-        Draw(testCards);
-        CardSet();
-
-    }
-    
-    
-
-
-
-
 
 }
