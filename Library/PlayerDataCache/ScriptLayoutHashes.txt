@@ -230,7 +230,7 @@ ec0082b40adf3b0930cd87250ffdbf1d Assembly-CSharp.dll:.SupportLogger
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OnPickedUpScript
 1356b4a6096c35c829823b7e28399030 Assembly-CSharp.dll:.ShowStatusWhenConnecting
 298901e5fd6ccf8cd5b55cb6018e6abe Assembly-CSharp.dll:.PickupItemSimple
-b4abf592d5f67cfba8b7fae654b462a9 Assembly-CSharp.dll:.PlayerInfoPref
+f992518091eeb0d4c4266aadd0eac588 Assembly-CSharp.dll:.PlayerInfoPref
 08712033bfb8d4fd2842041f9a20ded7 Assembly-CSharp.dll:.ManualPhotonViewAllocator
 a2d612afa0d90f75edf1d10832a65609 Assembly-CSharp.dll:.JumpAndRunMovement
 1356b4a6096c35c829823b7e28399030 Assembly-CSharp.dll:.DemoMecanimGUI

@@ -52,8 +52,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Csharp.cs" />
-     <Compile Include="Assets\seki\LoginManager.cs" />
-     <Compile Include="Assets\seki\network_test1.cs" />
      <Compile Include="Assets\seki\Photon Unity Networking\Demos\Demo2DJumpAndRunWithPhysics\Scripts\Demo2DJumpAndRun.cs" />
      <Compile Include="Assets\seki\Photon Unity Networking\Demos\Demo2DJumpAndRunWithPhysics\Scripts\JumpAndRunMovement.cs" />
      <Compile Include="Assets\seki\Photon Unity Networking\Demos\DemoBoxes\ColorPerPlayer.cs" />
@@ -197,10 +195,12 @@
      <Compile Include="Assets\seki\PhotonChatApi\ChatState.cs" />
      <Compile Include="Assets\seki\PhotonChatApi\ChatUserStatus.cs" />
      <Compile Include="Assets\seki\PhotonChatApi\IChatClientListener.cs" />
-     <Compile Include="Assets\seki\PhotonManager.cs" />
-     <Compile Include="Assets\seki\PlayerInfoPref.cs" />
      <Compile Include="Assets\seki\Plugins\WebSocket\WebSocket.cs" />
-     <Compile Include="Assets\seki\TurnManager.cs" />
+     <Compile Include="Assets\seki\Scripts\LoginManager.cs" />
+     <Compile Include="Assets\seki\Scripts\network_test1.cs" />
+     <Compile Include="Assets\seki\Scripts\PhotonManager.cs" />
+     <Compile Include="Assets\seki\Scripts\PlayerInfoPref.cs" />
+     <Compile Include="Assets\seki\Scripts\TurnManager.cs" />
      <Compile Include="Assets\test.cs" />
      <None Include="Assets\seki\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\seki\Photon Unity Networking\link.xml" />
