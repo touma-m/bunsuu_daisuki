@@ -26,6 +26,10 @@ public class FieldScript : MonoBehaviour {
         Card = Resources.Load(FieldCardInt.ToString()) as GameObject;
         Instantiate(Card, new Vector3(0, 60, 0), Quaternion.identity).transform.parent = this.transform;
     }
+    public int GetField() {
+        return FieldCardInt;
+    }
+    
 
 
 }

@@ -10,11 +10,12 @@ public class HandScript : MonoBehaviour {
     GameObject Card;
     GameObject HandParent;
     GameObject Trash;
-
+    GameObject Field;
     // Use this for initialization
     void Start () {
         HandParent = GameObject.Find("Hand");
         Trash = GameObject.Find("Trash");
+        Field = GameObject.Find("Field");
     }
 	// Update is called once per frame
 	void Update () {
@@ -29,14 +30,12 @@ public class HandScript : MonoBehaviour {
     }
     public void CardSet() {//カードオブジェクトをセット
         int j=0;
+        AllKill();
         foreach (int i in Hand)
         {
-            
-            //Card = GameObject.Find(Hand[i].ToString());
             Card = Resources.Load(i.ToString()) as GameObject;
-            Debug.Log(Hand[j]);
             HandCardObject.Add(Instantiate(Card, new Vector3(j * 30.0f, 0, 0), Quaternion.identity));
-            Debug.Log(Hand[j]);
+            //Debug.Log(Hand[j]);
             HandCardObject[j].transform.parent = HandParent.transform;
             HandCardObject[j].AddComponent<CardScript>();
             HandCardObject[j].GetComponent<CardScript>().setnun(j);
@@ -50,27 +49,57 @@ public class HandScript : MonoBehaviour {
         foreach (int i in Hand) ; //HandTrigger.Add();
     }
     public void OutPut() {
-        
-        foreach (int i in SelectCard) {
-            //HandCardObject[i].GetComponent<CardScript>().getTrigger();
-            Debug.Log("sasa"+Hand[i]);
-            Trash.GetComponent<TrashScript>().TrashAdd(Hand[i]);
-        }
-        Trash.GetComponent<TrashScript>().testTrash();
-    }
-    public void HandRemove(int[] RemoveCard) {//出したカードを配列かな削除する
-        int j= 0;
-        foreach (int i in SelectCard)
+        int FieldInt;
+        if (SelectCard.Count != 0)
         {
-            Hand.RemoveAt(SelectCard[j]);
-            j += 1;
+            FieldInt=Field.GetComponent<FieldScript>().GetField();
+
+            foreach (int i in SelectCard)
+            {
+                //HandCardObject[i].GetComponent<CardScript>().getTrigger();
+                //Debug.Log("sasa" + Hand[i]);
+                Trash.GetComponent<TrashScript>().TrashAdd(Hand[i]);
+            }
+            Trash.GetComponent<TrashScript>().testTrash();
+            HandRemove();//配列から消す
+
+            CardSet();//オブジェクトを再配置
         }
-     }
+        else {
+            //パスの処理
+        }
+    }
+
+    public void HandRemove() {//出したカードを配列から削除する
+        int j= 0;
+        for (j = SelectCard.Count-1; j >= 0; j -= 1)Hand.RemoveAt(SelectCard[j]);
+    }
     public void SelectOrder(int Selectnum) {//選んだ順番
         SelectCard.Add(Selectnum);
     }
-    public void A()//Handの子をすべて消す
-    { }
+    public void AllKill()//Handの子をすべて消す
+    {
+        foreach (Transform n in this.transform)
+        {
+            Destroy(n.gameObject);
+        }
+        HandCardObject.Clear();
+        SelectCard.Clear();
+    }
+    public void SelectOrderKill(int SelectCardCancel) {
+        int j = 0, KillInt=0;
+        foreach (int i in SelectCard) {
+            if (SelectCardCancel == i)
+            {
+                KillInt = j;
+            }
+            j += 1;
+        }
+        SelectCard.RemoveAt(KillInt);
+
+    }
+
+
 
     public void test() {//  実装時は必ず消す
         Debug.Log("にゃーん");

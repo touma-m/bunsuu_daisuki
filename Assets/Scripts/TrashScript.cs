@@ -19,6 +19,9 @@ public class TrashScript : MonoBehaviour {
     public void TrashAdd(int TrashCard) {
         int LastCard=0;
         Trash.Add(TrashCard);
+
+        testTrash();
+
         foreach (int i in Trash) LastCard = i;
         
         Field.GetComponent<FieldScript>().FieldUpDate(LastCard);//フィールド更新
@@ -29,11 +32,13 @@ public class TrashScript : MonoBehaviour {
     }
     public void testTrash() {
         int j = 0;
+        string test = "墓地は";
         foreach (int i in Trash)
         {
-
-            Debug.Log("墓地"+Trash[j]);
+            test +=""+ Trash[j];
+            
             j += 1;
         }
-        }
+        Debug.Log(test);
+    }
 }
