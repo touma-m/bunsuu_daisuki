@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/touma.unity
+- path: Assets/seki/network_tests.unity
   isLoaded: 1
   isActive: 1

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bunsuu_daisuki", "bunsuu_daisuki.csproj", "{2051D11E-5F86-7861-AF48-73AD5E5314E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bunsuu_daisuki.Editor", "bunsuu_daisuki.Editor.csproj", "{CE18833A-293F-8A4E-6249-DA44AA3E0C13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2051D11E-5F86-7861-AF48-73AD5E5314E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2051D11E-5F86-7861-AF48-73AD5E5314E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2051D11E-5F86-7861-AF48-73AD5E5314E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE18833A-293F-8A4E-6249-DA44AA3E0C13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE18833A-293F-8A4E-6249-DA44AA3E0C13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE18833A-293F-8A4E-6249-DA44AA3E0C13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE18833A-293F-8A4E-6249-DA44AA3E0C13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
