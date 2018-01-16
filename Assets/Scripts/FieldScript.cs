@@ -23,6 +23,11 @@ public class FieldScript : MonoBehaviour {
     }
     public void FixedSet()//カードをセット
     {
+        foreach (Transform n in this.transform)
+        {
+            Destroy(n.gameObject);
+        }
+
         Card = Resources.Load(FieldCardInt.ToString()) as GameObject;
         Instantiate(Card, new Vector3(0, 60, 0), Quaternion.identity).transform.parent = this.transform;
     }

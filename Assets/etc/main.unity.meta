@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: b0926d14f239d324ab8bb0ec043fc62e
+<<<<<<< HEAD:Assets/etc/main.unity.meta
 timeCreated: 1515148046
+=======
+timeCreated: 1515479553
+>>>>>>> f11d58667797b4948760a4c360a2df36669b63ce:Assets/main.unity.meta
 licenseType: Free
 DefaultImporter:
   externalObjects: {}

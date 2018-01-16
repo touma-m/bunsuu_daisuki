@@ -21,9 +21,12 @@ public class HandScript : MonoBehaviour {
 	void Update () {
 	    	
 	}
-    public void Draw(int[] DrawCard) {//ドローするやつ
+    //----
+    public void Draw(List<int> DrawCard) {//ドローするやつ
 
-        foreach (int i in DrawCard) Hand.Add(i); 
+        foreach (int i in DrawCard) Hand.Add(i);
+
+        CardSet();
     }
     public void Sort() {//手札ソート　今使うとおかしなことに
         Hand.Sort();
@@ -34,7 +37,7 @@ public class HandScript : MonoBehaviour {
         foreach (int i in Hand)
         {
             Card = Resources.Load(i.ToString()) as GameObject;
-            HandCardObject.Add(Instantiate(Card, new Vector3(j * 30.0f, 0, 0), Quaternion.identity));
+            HandCardObject.Add(Instantiate(Card, new Vector3(j * 20.0f, 0,j*0.1f), Quaternion.identity));
             //Debug.Log(Hand[j]);
             HandCardObject[j].transform.parent = HandParent.transform;
             HandCardObject[j].AddComponent<CardScript>();
@@ -50,24 +53,40 @@ public class HandScript : MonoBehaviour {
     }
     public void OutPut() {
         int FieldInt;
+        int ColorInt;
+        int CardNum;
         if (SelectCard.Count != 0)
         {
-            FieldInt=Field.GetComponent<FieldScript>().GetField();
-
-            foreach (int i in SelectCard)
+            FieldInt = Field.GetComponent<FieldScript>().GetField();
+            ColorInt = FieldInt / 10;
+            CardNum = FieldInt % 10;
+            if (ColorInt == Hand[SelectCard[0]] / 10 || CardNum == Hand[SelectCard[0]] % 10)
             {
-                //HandCardObject[i].GetComponent<CardScript>().getTrigger();
-                //Debug.Log("sasa" + Hand[i]);
-                Trash.GetComponent<TrashScript>().TrashAdd(Hand[i]);
-            }
-            Trash.GetComponent<TrashScript>().testTrash();
-            HandRemove();//配列から消す
 
-            CardSet();//オブジェクトを再配置
+
+
+                foreach (int i in SelectCard)
+                {
+                    //HandCardObject[i].GetComponent<CardScript>().getTrigger();
+                    //Debug.Log("sasa" + Hand[i]);
+                    Trash.GetComponent<TrashScript>().TrashAdd(Hand[i]);
+                }
+                Trash.GetComponent<TrashScript>().testTrash();
+                HandRemove();//配列から消す
+
+                CardSet();//オブジェクトを再配置
+            }
+            else
+            {
+                Debug.Log("ルール違反");
+            }
         }
-        else {
+
+        else
+        {
             //パスの処理
         }
+        
     }
 
     public void HandRemove() {//出したカードを配列から削除する
@@ -101,13 +120,7 @@ public class HandScript : MonoBehaviour {
 
 
 
-    public void test() {//  実装時は必ず消す
-        Debug.Log("にゃーん");
-        int[] testCards= { 4, 9, 23, 4, 7, 21, 30 };
-        Draw(testCards);
-        CardSet();
-
-    }
+    
     
     
 

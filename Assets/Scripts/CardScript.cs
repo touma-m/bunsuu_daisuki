@@ -9,12 +9,13 @@ public class CardScript : MonoBehaviour, IPointerClickHandler
     bool CardTrigger;
     GameObject Hand;
     int Mynun;//何番目に選ばれているか
-
+    float Z;
 
     // Use this for initialization
     void Start () {
         CardTrigger = false;
         Hand= GameObject.Find("Hand");
+        Z=this.transform.position.z;
     }
 	
 
@@ -43,6 +44,14 @@ public class CardScript : MonoBehaviour, IPointerClickHandler
             CardTrigger = false;
             Hand.GetComponent<HandScript>().SelectOrderKill(Mynun);
         }
+    }
+    public void OnMouseExit()
+    {
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, Z);
+    }
+    void OnMouseEnter()
+    {
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -5);
     }
     public bool getTrigger() {
         return CardTrigger;
