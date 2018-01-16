@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PhotonManager : Photon.MonoBehaviour {
 
 	string userName;
+	public string SceneName = "TestGameMain";
 
 	public void ConnectPhoton(){
 		if (GameObject.Find ("NameInputField").GetComponent<InputField> ().text != "") {
@@ -86,7 +87,7 @@ public class PhotonManager : Photon.MonoBehaviour {
 	void OnJoinedRoom(){
 		Debug.Log ("PhotonManager OnJoinedRoom");
 		GameObject.Find ("StatusText").GetComponent<Text> ().text = "OnJoinedRoom";
-		SceneManager.LoadScene ("TestGameMain");
+		SceneManager.LoadScene (SceneName);
 
 	}
 

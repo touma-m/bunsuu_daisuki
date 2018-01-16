@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/seki/network_tests.unity
+- path: Assets/UnoTestLogin.unity
   isLoaded: 1
   isActive: 1

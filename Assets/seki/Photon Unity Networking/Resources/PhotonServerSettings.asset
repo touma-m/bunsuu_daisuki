@@ -56,4 +56,11 @@ MonoBehaviour:
   - TurnChangeRequest
   - setMyturn
   - getHandLength
+  - Draw
+  - deck_draw
+  - setFieldCard
+  - DrawforDeck
+  - setmyhand
+  - DrawforDeckRequest
+  - trashRefresh
   DisableAutoOpenWizard: 1

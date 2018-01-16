@@ -50,9 +50,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/seki/Photon Unity Networking/Demos/MarcoPolo-Tutorial/MarcoPolo-Scene.unity
     guid: 4edb89b81eea36243978d62c589e60ad
-  - enabled: 1
+  - enabled: 0
     path: Assets/seki/network_tests.unity
     guid: ddcf4d596009d4e9d9bca5272d2f531e
-  - enabled: 1
+  - enabled: 0
     path: Assets/seki/TestGameMain.unity
     guid: f2df6e2a26c5d4d288b1f0b95116975f
+  - enabled: 1
+    path: Assets/UnoTestLogin.unity
+    guid: ba59ef687f9094e2cb60c1dd4c08504b
+  - enabled: 1
+    path: Assets/UnoTest.unity
+    guid: 319ac6c119e9b46b88f9e83dafdb5ec3

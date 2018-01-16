@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
-using System.Collections.Generic;
-
 
 public class PlayerInfoPref : Photon.MonoBehaviour {
 
@@ -15,7 +12,7 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 	PhotonPlayer player;
 	GameObject startbutton;
 	Text joinedMembersText;
-	Text turnsatus;
+	Text turnstatus;
 
 	//-----------------------------------------------------------------------------
 	Text handinfo;
@@ -34,10 +31,10 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		turnmanager = GameObject.Find("TurnManager");
 
 		startbutton = GameObject.Find ("startbutton");							//
-		joinedMembersText = GameObject.Find ("count").GetComponent<Text>();		// UI関係
-		turnsatus = GameObject.Find ("myturnstatus").GetComponent<Text>();		//
-		handinfo = GameObject.Find("handinfo").GetComponent<Text>();	//test	//
-		enemyhandcount = GameObject.Find("enemyhandcount").GetComponent<Text>();//
+		joinedMembersText = GameObject.Find ("joinedMembersText").GetComponent<Text>();		// UI関係
+		turnstatus = GameObject.Find ("myturnstatus").GetComponent<Text>();		//
+		//handinfo = GameObject.Find("handinfo").GetComponent<Text>();	//test	//
+		//enemyhandcount = GameObject.Find("enemyhandcount").GetComponent<Text>();//
 
 		view = GetComponent<PhotonView> ();
 
@@ -50,16 +47,16 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 			
 
 		//手札テスト-----------------------------------------------------------
-		handinfo.text = "";
-		for (int i = 0; i < UnityEngine.Random.Range(1,10); i++) {
-			hand.Add (UnityEngine.Random.Range(0,76));
-		}
-
-		foreach(int n in hand){
-			handinfo.text += n + ", ";
-		}
-
-		enemyhandcount.text = "";
+		//handinfo.text = "";
+//		for (int i = 0; i < UnityEngine.Random.Range(1,10); i++) {
+//			hand.Add (UnityEngine.Random.Range(0,76));
+//		}
+//
+//		foreach(int n in hand){
+//			handinfo.text += n + ", ";
+//		}
+//
+//		enemyhandcount.text = "";
 
 
 
@@ -73,18 +70,21 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		room = PhotonNetwork.room;
 		int playercount = room.playerCount;
 		joinedMembersText.text = "online : " + playercount;
-		turnsatus.text = myturn.ToString();
+		string nowturnstatus;
+		if (myturn == true) {
+			nowturnstatus = "あなたのターン";
+		} else {
+			nowturnstatus = "相手のターン";
+		}
+		turnstatus.text = nowturnstatus;
 
 		//自分のターンの時
 		if (myturn == true) {
-			GameObject.Find ("TurnEndButton").GetComponent<Button> ().interactable = true;
+			GameObject.Find ("push").GetComponent<Button> ().interactable = true;
 			//カードを出す処理（出せる処理）
 		} else {
-			GameObject.Find ("TurnEndButton").GetComponent<Button> ().interactable = false;
+			GameObject.Find ("push").GetComponent<Button> ().interactable = false;
 		}
-
-
-
 	}
 
 
@@ -93,8 +93,10 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 	void ongamestart(){
 		turnmanager.GetComponent<TurnManager> ().gamestart ();
 		view.RPC ("getTurnInfoRequest",PhotonTargets.All);
-		view.RPC ("getHandLength", PhotonTargets.Others, PhotonNetwork.playerName, hand.Count);
-		dispHandLength(); //test
+		//初手7枚を引く
+		GameObject.Find ("Hand").GetComponent<HandScript> ().FirstDraw(); 
+		//view.RPC ("getHandLength", PhotonTargets.Others, PhotonNetwork.playerName, hand.Count);
+		//dispHandLength(); //test
 	}
 
 
@@ -206,18 +208,18 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 
 
 	//手札枚数取得用
-	[PunRPC]
-	public void getHandLength(string playername,int handlength){
-		enemyhand.Add (playername, handlength);
-	}
-
-
-	void dispHandLength(){
-		//相手の手札の枚数を取得
-//		foreach (Dictionary<string,int> eh in enemyhand) {
-//			enemyhandcount.text += eh.Keys + " : " + eh.Values + "\n";
-//		}
-	}
+//	[PunRPC]
+//	public void getHandLength(string playername,int handlength){
+//		enemyhand.Add (playername, handlength);
+//	}
+//
+//
+//	void dispHandLength(){
+//		//相手の手札の枚数を取得
+////		foreach (Dictionary<string,int> eh in enemyhand) {
+////			enemyhandcount.text += eh.Keys + " : " + eh.Values + "\n";
+////		}
+//	}
 
 
 
@@ -235,7 +237,7 @@ public class PlayerInfoPref : Photon.MonoBehaviour {
 		
 	[PunRPC]
 	public void testRPC(string ss, string sss,bool[] b){
-		GameObject.Find ("RPCtest").GetComponent<Text> ().text = ss + sss + " " + b[1] + ","+ b[2];
+		//GameObject.Find ("RPCtest").GetComponent<Text> ().text = ss + sss + " " + b[1] + ","+ b[2];
 	}
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 }
