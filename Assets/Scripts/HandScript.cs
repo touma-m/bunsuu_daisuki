@@ -47,7 +47,7 @@ public class HandScript : Photon.MonoBehaviour {
         foreach (int i in Hand)
         {
             Card = Resources.Load(i.ToString()) as GameObject;
-            HandCardObject.Add(Instantiate(Card, new Vector3(j * 30.0f, 0, 0), Quaternion.identity));
+            HandCardObject.Add(Instantiate(Card, new Vector3(j * 20.0f, 0, 0), Quaternion.identity));
             //Debug.Log(Hand[j]);
             HandCardObject[j].transform.parent = HandParent.transform;
             HandCardObject[j].AddComponent<CardScript>();
@@ -121,7 +121,13 @@ public class HandScript : Photon.MonoBehaviour {
 
     public void HandRemove() {//出したカードを配列から削除する
         int j= 0;
-        for (j = SelectCard.Count-1; j >= 0; j -= 1)Hand.RemoveAt(SelectCard[j]);
+		SelectCard.Sort ();
+		//foreach(List<> index in SelectCard.Count)
+		//Debug.Log (SelectCard[0]);
+		for (j = SelectCard.Count - 1; j >= 0; j--) {
+			//Debug.Log ("j = " + j);
+			Hand.RemoveAt (SelectCard[j]);
+		}
     }
     public void SelectOrder(int Selectnum) {//選んだ順番
         SelectCard.Add(Selectnum);

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 0
     width: 447
     height: 850
-  m_MinSize: {x: 438, y: 271}
-  m_MaxSize: {x: 14008, y: 10021}
+  m_MinSize: {x: 434, y: 271}
+  m_MaxSize: {x: 14004, y: 10021}
   vertical: 0
-  controlID: 1033
+  controlID: 71
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -114,7 +114,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Tall
+  m_LastLoadedLayoutName: 
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 30
     width: 1440
     height: 850
-  m_MinSize: {x: 917, y: 271}
-  m_MaxSize: {x: 22012, y: 10021}
+  m_MinSize: {x: 913, y: 271}
+  m_MaxSize: {x: 22008, y: 10021}
   vertical: 0
-  controlID: 1053
+  controlID: 92
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,8 +229,8 @@ MonoBehaviour:
     y: 0
     width: 213
     height: 850
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1165
-    y: 19
+    y: 49
     width: 275
     height: 829
   m_ScrollPosition: {x: 0, y: 0}
@@ -291,8 +291,8 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 215
-    y: 19
+    x: 931
+    y: 49
     width: 230
     height: 829
   m_SearchFilter:
@@ -307,18 +307,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/user/Documents/GitHub/bunsuu_daisuki
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c280000
-    m_LastClickedID: 10364
+    m_SelectedIDs: b02e0000
+    m_LastClickedID: 11952
     m_ExpandedIDs: 000000007c28000072290000c2290000982e0000d62e00004a300000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c28000072290000c2290000982e0000d62e00004a300000ffffff7f
+    m_ExpandedIDs: 000000007c28000072290000c2290000982e0000d62e00004a300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -378,18 +378,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UnoTestLogin
-      m_OriginalName: UnoTestLogin
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 11732
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -583,7 +583,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 7e13ffff8814ffffbe16ffffc616ffffd426ffffe22cffff7c63ffff8463ffffa6fbffff0000000014490000c6560000
+    m_ExpandedIDs: 14f5ffff1cf5ffffa6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
