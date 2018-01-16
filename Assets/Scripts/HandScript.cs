@@ -21,7 +21,10 @@ public class HandScript : MonoBehaviour {
 	void Update () {
 	    	
 	}
+<<<<<<< HEAD
     //----
+=======
+>>>>>>> f6bea2a974efc03a369c069e08786e2739d1e1c0
     public void Draw(List<int> DrawCard) {//ドローするやつ
 
         foreach (int i in DrawCard) Hand.Add(i);
@@ -118,6 +121,7 @@ public class HandScript : MonoBehaviour {
 
     }
 
+<<<<<<< HEAD
 
 
     
@@ -128,4 +132,6 @@ public class HandScript : MonoBehaviour {
 
 
 
+=======
+>>>>>>> f6bea2a974efc03a369c069e08786e2739d1e1c0
 }
